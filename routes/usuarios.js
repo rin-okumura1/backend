@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var orden= require("../repo/ordenes")
-
+var {mode}
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {

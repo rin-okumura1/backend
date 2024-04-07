@@ -8,6 +8,7 @@ const dotenv=require('dotenv').config()
 var indexRouter = require('./routes/index');
 var ticketRouter = require('./routes/tickets');
 var ordenRouter=require("./routes/orden");
+var usuarioRouter=require("./routes/usuarios");
 
 console.log(process.env)
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/ticket', ticketRouter);
 app.use('/orden',ordenRouter);
+app.use('/usuario',usuarioRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
