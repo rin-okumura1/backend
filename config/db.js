@@ -4,35 +4,29 @@ const fs = require('fs');
 
 module.exports = {
   development: {
-    username: 'database_dev',
-    password: 'database_dev',
-    database: 'database_dev',
-    host: '127.0.0.1',
-    port: 3306,
+    username: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    host: process.env.DB_HOST,
+    port: process.env.MYSQLPORT,
     dialect: 'mysql',
-    dialectOptions: {
-      bigNumberStrings: true
-    }
+
   },
   test: {
-    username: process.env.CI_DB_USERNAME,
-    password: process.env.CI_DB_PASSWORD,
-    database: process.env.CI_DB_NAME,
-    host: '127.0.0.1',
-    port: 3306,
+    username: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    host: process.env.DB_HOST,
+    port: process.env.MYSQLPORT,
     dialect: 'mysql',
-    dialectOptions: {
-      bigNumberStrings: true
-    }
+
   },
   production: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    username: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQL_DATABASE,
     host: process.env.DB_HOST,
-    port: process.env.PORT,
-    dialect: 'mysql',
-   
-    
+    port: process.env.MYSQLPORT,
+    dialect: 'mysql'
   }
 };
