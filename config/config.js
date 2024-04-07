@@ -1,24 +1,25 @@
-require('dotenv').config(); // this is important!
-module.exports = {
-"development": {
-    "username": process.env.DB_USERNAME,
-    "password": process.env.DB_PASSWORD,
-    "database": process.env.DB_DATABASE,
-    "host": process.env.DB_HOST,
-    "dialect": "mysql"
-},
-"test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-},
-"production": {
-  "username": process.env.DB_USERNAME,
-  "password": process.env.DB_PASSWORD,
-  "database": process.env.DB_DATABASE,
-  "host": process.env.DB_HOST,
-    "dialect": "mysql"
-}
-};
+const Sequelize = require('sequelize');
+require('dotenv').config();
+
+// Establishing a connection to the MySQL database
+const SeqConnection = new Sequelize(
+  process.env.MYSQLDATABASE,  // Database Name
+  process.env.MYSQLUSER,      // MySQL Username
+  process.env.MYSQLPASSWORD,  // MySQL Password
+  {
+    host: process.env.MYSQLHOST,  // MySQL Host
+    port: process.env.MYSQLPORT,  // MySQL Port
+    dialect: "mysql",             // Specify the dialect for MySQL
+  }
+);
+
+// Testing the database connection
+SeqConnection.authenticate()
+  .then(() => {
+    console.log("Connected to MySQL");
+  })
+  .catch((error) => {
+    console.log(`Error in MySQL: ${error}`);
+  });
+
+module.exports = { SeqConnection };
