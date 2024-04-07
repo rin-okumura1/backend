@@ -5,7 +5,7 @@ var {user}=require('../db/models')
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
-  let a=await usuarios.findAll()
+  let a=await user.findAll()
   res.json(a);
 });
 
