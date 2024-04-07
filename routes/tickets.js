@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ticket=require('../repo/tickets')
+
 
 
 /* GET users listing. */
@@ -19,7 +19,7 @@ router.post('/',async function(req, res, next) {
 router.get('/registros',async function(req, res, next) {
  
   
-  res.json(await ticket.verTickets())
+  res.json({})
 });
 
 module.exports = router;
