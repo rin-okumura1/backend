@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var orden= require("../repo/ordenes")
-var {mode}
+var {usuarios}=require('../db/models')
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
-  let a=await orden.traerOrdenes()
+  let a=await usuarios.findAll()
   res.json(a);
 });
 
