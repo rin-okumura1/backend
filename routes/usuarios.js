@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var orden= require("../repo/ordenes")
+
 var {usuarios}=require('../db/models')
 
 /* GET users listing. */
