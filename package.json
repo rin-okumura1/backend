@@ -1,27 +1,19 @@
 {
-  "name": "ticketapp",
-  "version": "0.0.0",
-  "private": true,
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
   "scripts": {
-    "migrate": "npx sequelize-cli db:migrate",
-    "start": "node ./bin/www",
-    "dev": "nodemon app.js"
+    "start": "nodemon ./src/index.js"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "axios": "^1.6.8",
     "dotenv": "^16.4.5",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "mysql2": "^3.9.3",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
-    "pug": "2.0.0-beta11",
-    "sequelize": "^6.37.2",
-    "sqlite3": "^5.1.7"
-  },
-  "devDependencies": {
-    "sequelize-cli": "^6.6.2"
+    "sequelize": "^6.37.2"
   }
 }
