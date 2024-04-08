@@ -6,9 +6,9 @@ module.exports = {
   development: {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    database: process.env.MYSQLDATABASE,
     host: process.env.DB_HOST,
-    port: process.env.MYSQLPORT,
+    port:process.env.MYSQLPORT,
     dialect: 'mysql',
 
   },
@@ -17,16 +17,16 @@ module.exports = {
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
     host: process.env.DB_HOST,
-    port: process.env.MYSQLPORT,
     dialect: 'mysql',
-
+    port:process.env.MYSQLPORT
   },
   production: {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
     host: process.env.DB_HOST,
-    port: process.env.MYSQLPORT,
     dialect: 'mysql'
+    ,
+    port:process.env.MYSQLPORT
   }
 };
