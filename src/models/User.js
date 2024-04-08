@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
         rol: {
             type: DataTypes.STRING,
         },
-        company_id:{
+        compania_id:{
             type: DataTypes.INTEGER,
             allowNull: false,
         }
