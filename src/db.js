@@ -2,9 +2,9 @@ const { Sequelize } = require("sequelize")
 require("dotenv").config()
 const UserModel = require("./models/User");
 const TicketModel = require("./models/Ticket");
-let CompanyModel =require("./models/company");
+let CompanyModel =require("./models/Company");
 
-const { DATABASE_URL } = process.env;
+
 // const pg = require('pg')
 
 // const pool = new pg.Pool({
