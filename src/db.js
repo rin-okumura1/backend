@@ -3,7 +3,7 @@ require("dotenv").config()
 const UserModel = require("./models/User");
 const TicketModel = require("./models/Ticket");
 let CompanyModel =require("./models/Company");
-let RecordModel
+let RecordModel=require('./models/Record')
 
 
 // const pg = require('pg')
