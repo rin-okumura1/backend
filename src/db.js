@@ -1,8 +1,18 @@
-const { Sequelize } = require("sequelize")
+const {
+    Sequelize
+} = require("sequelize")
 require("dotenv").config()
-const UserModel = require("./models/User")
-const TicketModel = require("./models/Ticket")
-const { DATABASE_URL } = process.env;
+const {
+    User,
+    Ticket,
+    Company
+} = require("./models");
+
+
+
+const {
+    DATABASE_URL
+} = process.env;
 // const pg = require('pg')
 
 // const pool = new pg.Pool({
@@ -13,18 +23,26 @@ const { DATABASE_URL } = process.env;
 
 const sequelize = new Sequelize(
     process.env.DATABASE_URL
-    )
+)
 
-UserModel(sequelize);
-TicketModel(sequelize);
-
+User(sequelize);
+Ticket(sequelize);
+Company(sequelize)
 
 console.log(sequelize.models)
 
-const { User , Ticket } = sequelize.models;
+const {
+    User,
+    Ticket,
+    Company
+} = sequelize.models;
 
 //Relaciones
+User.belongsTo(Company)
 User.hasMany(Ticket); //Un usuario puede tener varios tickets
-Ticket.belongsTo(User)  //Un ticket pertenece a un usuario
+Ticket.belongsTo(User) //Un ticket pertenece a un usuario
 
-module.exports = { sequelize, ...sequelize.models};
+module.exports = {
+    sequelize,
+    ...sequelize.models
+};

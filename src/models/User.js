@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize")
 
 module.exports = (sequelize) => {
-    sequelize.define("User", {
+    sequelize.define("Usuario", {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -36,8 +36,8 @@ module.exports = (sequelize) => {
         rol: {
             type: DataTypes.ENUM("admin", "operador", "cliente"),
         },
-        empresa:{
-            type: DataTypes.STRING,
+        empresa_id:{
+            type: DataTypes.INTEGER,
             allowNull:false,
         }
     })

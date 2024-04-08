@@ -1,5 +1,7 @@
 const {Router} = require("express");
 const usersRouter = Router()
+const {User}=require('../../models')
+
 
 usersRouter.get("/", (req,res)=>{
     res.send("users")
@@ -8,12 +10,15 @@ usersRouter.get("/", (req,res)=>{
 usersRouter.get("/:id", (req,res)=>{
     const { id } = req.params;
     console.log(id)
-    res.send(`El id es ${id}`)
+    res.json(User.findByPk(id))
 })
 
 
 usersRouter.post("/", (req,res)=>{
-    res.send("users post")
+    
+
+
+    
 })
 
 
