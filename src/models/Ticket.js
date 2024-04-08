@@ -19,12 +19,18 @@ module.exports = (sequelize) => {
            
 
         },
-        notaC: {
+        incidencia: {
             type: DataTypes.STRING,
             allowNull: true,
 
         },
-        notaO: {
+        diagnostico: {
+            type: DataTypes.STRING,
+            allowNull: true,
+
+
+        },
+        usuario_id: {
             type: DataTypes.STRING,
             allowNull: true,
 
