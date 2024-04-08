@@ -1,14 +1,23 @@
-const { Router } = require("express")
+const {Router} = require("express");
+const ticketRouter = Router()
+const {ticket}=require('../../db')
 
-const ticketsRouter = Router();
 
-ticketsRouter.get("/", (req, res) => {
-    res.send("tickets")
+ticketRouter.get("/",async (req,res)=>{
+    res.json(await ticket.findAll())
 })
 
-ticketsRouter.post("/", (req, res) => {
-    res.send("tickets post")
+ticketRouter.get("/:id",async (req,res)=>{
+    const { id } = req.params;
+    console.log(id)
+    res.json(await ticket.findByPk(id))
 })
 
 
-module.exports = ticketsRouter;
+ticketRouter.post("/",async (req,res)=>{
+    await ticket.Create(req.body)
+    res.status(201)
+})
+
+
+module.exports = ticketRouter;
