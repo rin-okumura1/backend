@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var {user}=require('../db/models')
+var {estatus}=require('../db/models')
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
-  let a=await user.findAll()
+  let a=await estatus.findAll()
   res.json(a);
 });
 
