@@ -18,7 +18,7 @@ async function existe(nombre){
         nombre:nombre
     }}
     let retorno =await Compania.findAll(where)
-    console.log("aqui "+retorno)
+    console.log("aqui "+await retorno)
     return retorno
 }
 
@@ -27,7 +27,7 @@ companyRouter.post("/",async (req,res)=>{
     let retorno=""
 if(existe(req.body.nombre)==undefined) {retorno=await Compania.create(req.body);
 
-    console.log(retorno)
+        console.log(retorno)
         res.json(retorno).status(201)    
 }
 else res.json({message:"valide que el nombre no este repetido"})
