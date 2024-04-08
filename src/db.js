@@ -11,7 +11,8 @@ const { DATABASE_URL } = process.env;
 
 // console.log(pool)
 
-const sequelize = new Sequelize(process.env.DATABASE_PRIVATE_URL)
+const sequelize = new Sequelize(
+    DATABASE_URL)
 
 UserModel(sequelize);
 TicketModel(sequelize);
