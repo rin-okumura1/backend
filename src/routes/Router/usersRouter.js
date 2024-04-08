@@ -3,22 +3,20 @@ const usersRouter = Router()
 const User=require('../../models/User')
 
 
-usersRouter.get("/", (req,res)=>{
-    res.send("users")
+usersRouter.get("/",async (req,res)=>{
+    res.json(await User.findAll())
 })
 
-usersRouter.get("/:id", (req,res)=>{
+usersRouter.get("/:id",async (req,res)=>{
     const { id } = req.params;
     console.log(id)
-    res.json(User.findByPk(id))
+    res.json(await User.findByPk(id))
 })
 
 
-usersRouter.post("/", (req,res)=>{
-    
-
-
-
+usersRouter.post("/",async (req,res)=>{
+    await User.Create(req.body)
+    res.status(201)
 })
 
 
