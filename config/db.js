@@ -7,26 +7,34 @@ module.exports = {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQLDATABASE,
-    host: process.env.DB_HOST,
+    host: process.env.DBHOST,
     port:process.env.MYSQLPORT,
     dialect: 'mysql',
-
+    dialectOptions: {
+      bigNumberStrings: true
+    }
   },
   test: {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
-    host: process.env.DB_HOST,
+    host: process.env.DBHOST,
     dialect: 'mysql',
     port:process.env.MYSQLPORT
+    ,dialectOptions: {
+      bigNumberStrings: true
+    }
   },
   production: {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
-    host: process.env.DB_HOST,
+    host: process.env.DBHOST,
     dialect: 'mysql'
     ,
-    port:process.env.MYSQLPORT
+    port:process.env.MYSQLPORT,
+    dialectOptions: {
+      bigNumberStrings: true
+    }
   }
 };
