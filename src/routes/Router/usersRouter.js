@@ -15,7 +15,7 @@ usersRouter.get("/:id",async (req,res)=>{
 
 
 usersRouter.post("/",async (req,res)=>{
-    await Usuario.Create(req.body)
+    await Usuario.create(req.body)
     res.status(201)
 })
 

@@ -15,7 +15,7 @@ companyRouter.get("/:id",async (req,res)=>{
 
 
 companyRouter.post("/",async (req,res)=>{
-    await Compania.Create(req.body)
+    await Compania.create(req.body)
     res.status(201)
 })
 

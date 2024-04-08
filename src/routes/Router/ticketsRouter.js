@@ -15,7 +15,7 @@ ticketRouter.get("/:id",async (req,res)=>{
 
 
 ticketRouter.post("/",async (req,res)=>{
-    await ticket.Create(req.body)
+    await ticket.create(req.body)
     res.status(201)
 })
 

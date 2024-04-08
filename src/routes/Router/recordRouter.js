@@ -15,7 +15,7 @@ recordRouter.get("/:id",async (req,res)=>{
 
 
 recordRouter.post("/",async (req,res)=>{
-    await Record.Create(req.body)
+    await Record.create(req.body)
     res.status(201)
 })
 
