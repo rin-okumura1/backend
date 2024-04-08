@@ -1,21 +1,21 @@
 const {Router} = require("express");
 const usersRouter = Router()
-const {User}=require('../../db')
+const {Usuario}=require('../../db')
 
 
 usersRouter.get("/",async (req,res)=>{
-    res.json(await User.findAll())
+    res.json(await Usuario.findAll())
 })
 
 usersRouter.get("/:id",async (req,res)=>{
     const { id } = req.params;
     console.log(id)
-    res.json(await User.findByPk(id))
+    res.json(await Usuario.findByPk(id))
 })
 
 
 usersRouter.post("/",async (req,res)=>{
-    await User.Create(req.body)
+    await Usuario.Create(req.body)
     res.status(201)
 })
 
