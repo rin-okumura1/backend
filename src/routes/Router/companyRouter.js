@@ -15,8 +15,12 @@ companyRouter.get("/:id",async (req,res)=>{
 
 
 companyRouter.post("/",async (req,res)=>{
-    await Compania.create(req.body)
-    res.status(201)
+    Compania.create(req.body).then((result) => {
+        res.json(result).status(201)    
+    }).catch((err) => {
+        res.json(err).status(201)
+    });
+    
 })
 
 

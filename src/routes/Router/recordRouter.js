@@ -2,6 +2,11 @@ const {Router} = require("express");
 const recordRouter = Router()
 const {Record}=require('../../db')
 
+function validate(obj){
+    let { ticket_id,historial}=obj
+    if(!ticket_id&&!historial)return true
+}
+
 
 recordRouter.get("/",async (req,res)=>{
     res.json(await Record.findAll())
