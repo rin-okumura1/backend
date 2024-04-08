@@ -14,7 +14,8 @@ companyRouter.get("/:id",async (req,res)=>{
 })
 
 async function existe(nombre){
-    let retorno =await Compania.findAll({where:nombre})
+    let where={where:nombre}
+    let retorno =await Compania.findAll(where)
     return retorno == undefined
 }
 
