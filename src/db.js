@@ -38,6 +38,7 @@ const {
 } = sequelize.models;
 
 //Relaciones
+Company.hasMany(User)
 User.belongsTo(Company)
 User.hasMany(Ticket); //Un usuario puede tener varios tickets
 Ticket.belongsTo(User) //Un ticket pertenece a un usuario
