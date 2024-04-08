@@ -1,7 +1,7 @@
 const { Router }= require("express")
 const usersRouter = require("./Router/usersRouter")
 const ticketsRouter = require("./Router/ticketsRouter")
-const {companyRouter} = require("./Router")
+const companyRouter = require("./Router/companyRouter")
 
 const mainRouter = Router();
 
