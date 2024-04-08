@@ -2,8 +2,8 @@ const { Sequelize } = require("sequelize")
 require("dotenv").config()
 const UserModel = require("./models/User");
 const TicketModel = require("./models/Ticket");
-let CompanyRouter =require("./models/company");
-const company = require("./models/company");
+let CompanyModel =require("./models/company");
+
 const { DATABASE_URL } = process.env;
 // const pg = require('pg')
 
@@ -19,7 +19,7 @@ const sequelize = new Sequelize(
 
 UserModel(sequelize);
 TicketModel(sequelize);
-CompanyRouter(sequelize)
+CompanyModel(sequelize)
 
 console.log(sequelize.models)
 
