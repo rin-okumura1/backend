@@ -10,13 +10,13 @@ module.exports = (sequelize) => {
             unique: true
         },
         estado: {
-            type: DataTypes.ENUM("abierto", "cerrado"),
+            type: DataTypes.STRING,
             allowNull: false,
         },
         prioridad: {
-            type: DataTypes.ENUM("alta", "media", "baja"),
+            type: DataTypes.STRING,
             allowNull: false,
-            allowNull: false,
+           
 
         },
         notaC: {
