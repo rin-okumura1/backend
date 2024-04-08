@@ -7,7 +7,7 @@ module.exports = {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQLDATABASE,
-    host: process.env.DBHOST,
+    host: process.env.MYSQL_PRIVATE_URL,
     port:process.env.MYSQLPORT,
     dialect: 'mysql',
     dialectOptions: {
@@ -18,7 +18,7 @@ module.exports = {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
-    host: process.env.DBHOST,
+    host: process.env.MYSQL_PRIVATE_URL,
     dialect: 'mysql',
     port:process.env.MYSQLPORT
     ,dialectOptions: {
@@ -29,7 +29,7 @@ module.exports = {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQL_DATABASE,
-    host: process.env.DBHOST,
+    host: process.env.MYSQL_PRIVATE_URL,
     dialect: 'mysql'
     ,
     port:process.env.MYSQLPORT,
