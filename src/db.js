@@ -11,7 +11,7 @@ const { DATABASE_URL } = process.env;
 
 // console.log(pool)
 
-const sequelize = new Sequelize("postgresql://postgres:YNUAvYlEXTjCoyOoPcjluBehIzjNIUZD@postgres.railway.internal:5432/railway",
+const sequelize = new Sequelize(process.env.DATABASE_PRIVATE_URL,
 
 {
   logging: false, // set to console.log to see the raw SQL queries
