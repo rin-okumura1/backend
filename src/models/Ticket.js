@@ -29,13 +29,8 @@ module.exports = (sequelize) => {
             allowNull: true,
 
 
-        },
-        usuario_id: {
-            type: DataTypes.STRING,
-            allowNull: true,
-
-
         }
+        
 
     })
 }
