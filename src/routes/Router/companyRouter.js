@@ -23,7 +23,7 @@ async function existe(nombre){
 
 companyRouter.post("/",async (req,res)=>{
     
-    let retorno="",obj=existe(req.body.nombre)
+    let retorno="",obj=await existe(req.body.nombre)
 if(typeof  obj== "Object") {retorno=await Compania.create(req.body);
 
         console.log(retorno)
