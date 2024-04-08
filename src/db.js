@@ -28,7 +28,7 @@ const { Usuario , Ticket ,Compania} = sequelize.models;
 //Relaciones
 Compania.hasMany(Usuario,{ foreignKey: 'compania_id' })
 Usuario.belongsTo(Compania,{ foreignKey: 'compania_id' })
-Usuario.hasMany(Ticket,{ foreignKey: 'usuario_id' }); //Un usuario puede tener varios tickets
-Ticket.belongsTo(Usuario,{ foreignKey: 'usuario_id' })  //Un ticket pertenece a un usuario
+Usuario.hasMany(Ticket); //Un usuario puede tener varios tickets
+Ticket.belongsTo(Usuario)  //Un ticket pertenece a un usuario
 
 module.exports = { sequelize, ...sequelize.models};
