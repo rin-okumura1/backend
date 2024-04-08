@@ -1,6 +1,6 @@
 const {Router} = require("express");
 const usersRouter = Router()
-const User=require('../../models/User')
+const {User}=require('../../db')
 
 
 usersRouter.get("/",async (req,res)=>{
