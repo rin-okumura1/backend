@@ -18,6 +18,7 @@ async function existe(nombre){
         nombre:nombre
     }}
     let retorno =await Compania.findAll(where)
+    console.log("aqui "+retorno)
     return retorno == undefined
 }
 
