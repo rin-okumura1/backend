@@ -11,10 +11,11 @@ usersRouter.get("/",async (req,res)=>{
 usersRouter.get("/:id",async (req,res)=>{
     const { id } = req.params;
     console.log(id)
-    let user=res.json(await Usuario.findOne({where :{id:id}}))
-    if(user==undefined)res.json("jodete perra")
-    else res.json(user)
-})
+    if(typeof id !="number")res.json("jodete perra")
+    else{
+        let user=await Usuario.findByPk(id)
+        res.json(user)
+}})
 
 usersRouter.post('/login',async (req,res)=>{
     const { email,contraseña } = req.body;
