@@ -7,7 +7,7 @@ const recordRouter=require('./Router/recordRouter')
 
 const mainRouter = Router();
 
-mainRouter.use("/users", usersRouter)
+mainRouter.use("/usuarios", usersRouter)
 mainRouter.use("/tickets", ticketsRouter)
 mainRouter.use("/compania",companyRouter)
 mainRouter.use("/registros",recordRouter)
