@@ -11,7 +11,7 @@ usersRouter.get("/",async (req,res)=>{
 usersRouter.get("/:id",async (req,res)=>{
     let id = parseInt(req.params.id);
     console.log(id)
-    if(typeof id !="number")res.json("jodete perra")
+    if(id ==NaN)res.json("jodete perra")
     else{
         let user=await Usuario.findByPk(id)
         res.json(user)
