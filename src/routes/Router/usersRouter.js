@@ -15,9 +15,10 @@ usersRouter.get("/:id",async (req,res)=>{
 })
 
 usersRouter.post('/login',async (req,res)=>{
-    const { email,password } = req.body;
-
-    res.json(await Usuario.findOne({where:{email:email,password:password}}))
+    const { email,contraseña } = req.body;
+    let user=await Usuario.findOne({where:{email:email,contraseña:contraseña}})
+    if( user==undefined)res.json({message:"jodete"})
+    elseres.json(user)
 })
 
 usersRouter.post("/",async (req,res)=>{
