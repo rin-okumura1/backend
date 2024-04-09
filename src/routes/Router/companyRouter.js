@@ -24,8 +24,7 @@ async function existe(nombre){
 
 companyRouter.post("/",async (req,res)=>{
     
-
-await Compania.create(req.body);
+await Compania.create({nombre:req.body.nombre,activo:req.body.activo});
 
         res.status(201)
 
