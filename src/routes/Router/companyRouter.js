@@ -8,9 +8,10 @@ companyRouter.get("/",async (req,res)=>{
 })
 
 companyRouter.get("/:id",async (req,res)=>{
-    const { id } = req.params;
+    let id = parseInt(req.params.id);
     console.log(id)
-    res.json(await Compania.findByPk(id))
+    if(isNaN(id))res.json({message:"jodete perra"})
+    else res.json(await Compania.findByPk(id))
 })
 
 async function existe(nombre){

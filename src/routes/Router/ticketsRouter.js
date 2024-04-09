@@ -8,9 +8,10 @@ ticketRouter.get("/",async (req,res)=>{
 })
 
 ticketRouter.get("/:id",async (req,res)=>{
-    const { id } = req.params;
+    let id = parseInt(req.params.id);
     console.log(id)
-    res.json(await Ticket.findByPk(id))
+    if(isNaN(id))res.json({message:"jodete perra"})
+    else res.json(await Ticket.findByPk(id))
 })
 
 async function crearRegistro(body){
