@@ -15,7 +15,15 @@ usersRouter.get("/:id",async (req,res)=>{
 
 
 usersRouter.post("/",async (req,res)=>{
-    let a=await Usuario.create({nombre:req.body.nombre,apellido:req.body.contraseña,email:req.body.email,activo:req.body.activo,rol:req.body.rol,compania_id:req.body.compania_id})
+    let a=await Usuario.create({
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        contraseña : req.body.contraseña , // Remember to handle password securely
+        email: req.body.email,
+        activo: req.body.activo,
+        rol: req.body.rol,
+        compania_id: req.body.compania_id
+      })
     res.json(a).status(201)
 })
 
