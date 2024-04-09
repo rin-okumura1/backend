@@ -9,7 +9,7 @@ usersRouter.get("/",async (req,res)=>{
 })
 
 usersRouter.get("/:id",async (req,res)=>{
-    const { id } = req.params;
+    let id = ParseInt(req.params.id);
     console.log(id)
     if(typeof id !="number")res.json("jodete perra")
     else{
