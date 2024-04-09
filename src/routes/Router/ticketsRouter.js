@@ -1,6 +1,6 @@
 const {Router} = require("express");
 const ticketRouter = Router()
-const {Ticket}=require('../../db')
+const {Ticket,Registro}=require('../../db')
 
 
 ticketRouter.get("/",async (req,res)=>{
@@ -13,15 +13,21 @@ ticketRouter.get("/:id",async (req,res)=>{
     res.json(await Ticket.findByPk(id))
 })
 
+async function crearRegistro(body){
+    await Registro.create({ticket_id:body.id,historial:JSON.stringify(body)})
+}
 
 ticketRouter.post("/",async (req,res)=>{
-    await Ticket.create({
+
+    let a= await Ticket.create({
         estado: req.body.estado,
         prioridad: req.body.prioridad,
         incidencia: req.body.incidencia,
         diagnostico: req.body.diagnostico,
         usuario_id: req.body.usuario_id,
       })
+crearRegistro(a)
+
     res.status(201)
 })
 
