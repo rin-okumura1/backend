@@ -25,10 +25,14 @@ async function existe(nombre){
 companyRouter.post("/",async (req,res)=>{
     let a=await existe(req.body.nombre)
     console.log("aqui "+a)
+    if(a.length>0){
+        res.json({message:"ya existe"})
+    }
+    else{
 await Compania.create({nombre:req.body.nombre,activo:req.body.activo});
 
-        res.status(201)
-
+        res.json({message:"creando"}).status(201)
+    }
 })
 
 
