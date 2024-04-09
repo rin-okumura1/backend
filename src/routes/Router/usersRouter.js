@@ -24,7 +24,7 @@ usersRouter.post("/",async (req,res)=>{
         rol: req.body.rol,
         compania_id: req.body.compania_id
       })
-    res.json(a).status(201)
+    res.json({message:"ok"}).status(201)
 })
 
 
