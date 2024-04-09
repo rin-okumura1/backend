@@ -29,7 +29,7 @@ async function existe(email){
 
 usersRouter.post("/",async (req,res)=>{
    let user=await existe(req.body.email)
-    if(user!=null)res.json({message:"no me caigo"}).statusCode(400)
+    if(user!=null)res.json({message:"no me caigo"}).status(400)
    else{
     await Usuario.create({
         nombre: req.body.nombre,
