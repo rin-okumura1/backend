@@ -18,7 +18,7 @@ usersRouter.post('/login',async (req,res)=>{
     const { email,contraseña } = req.body;
     let user=await Usuario.findOne({where:{email:email,contraseña:contraseña}})
     if( user==undefined)res.json({message:"jodete"})
-    elseres.json(user)
+    else res.json(user)
 })
 
 usersRouter.post("/",async (req,res)=>{
