@@ -24,11 +24,11 @@ async function existe(nombre){
 
 companyRouter.post("/",async (req,res)=>{
     
-    let retorno="",obj=await existe(req.body.nombre)
+    let obj=await existe(req.body.nombre)
 if(!obj) {retorno=await Compania.create(req.body);
 
-        console.log(retorno)
-        res.json(retorno).status(201)    
+        console.log(obj)
+        res.json(obj).status(201)    
 }
 else res.json({message:"valide que el nombre no este repetido"})
     
