@@ -11,7 +11,7 @@ usersRouter.get("/",async (req,res)=>{
 usersRouter.get("/:id",async (req,res)=>{
     const { id } = req.params;
     console.log(id)
-    let user=res.json(await Usuario.findByPk(id))
+    let user=res.json(await Usuario.findOne({where :{id:id}}))
     if(user==undefined)res.json("jodete perra")
     else res.json(user)
 })
