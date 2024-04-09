@@ -17,14 +17,15 @@ async function existe(nombre){
     let where={where:{
         nombre:nombre
     }}
-    let retorno =await Compania.findOne(where)
+    let retorno =await Compania.findAll(where)
+    console.log(retorno)
     return retorno
 }
 
 companyRouter.post("/",async (req,res)=>{
     
     let retorno="",obj=await existe(req.body.nombre)
-if(obj!=undefined) {retorno=await Compania.create(req.body);
+if(!obj) {retorno=await Compania.create(req.body);
 
         console.log(retorno)
         res.json(retorno).status(201)    
