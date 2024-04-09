@@ -14,8 +14,8 @@ usersRouter.get("/:id",async (req,res)=>{
     res.json(await Usuario.findByPk(id))
 })
 
-usersRouter.get("/:email/:password",async (req,res)=>{
-    const { email,password } = req.params;
+usersRouter.post(,async (req,res)=>{
+    const { email,password } = req.body;
 
     res.json(await Usuario.findOne({where:{email:email,password:password}}))
 })
