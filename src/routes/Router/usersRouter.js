@@ -23,9 +23,15 @@ usersRouter.post('/login',async (req,res)=>{
     if( user==undefined)res.json({message:"jodete"})
     else res.json(user)
 })
+async function existe(email){
+    return await Usuario.findOne({where:{email:email}})
+}
 
 usersRouter.post("/",async (req,res)=>{
-   await Usuario.create({
+   let user=await existe(req.body.email)
+    if(user!=null)res.status(400)
+   else{
+    await Usuario.create({
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         contraseña : req.body.contraseña , // Remember to handle password securely
@@ -34,8 +40,8 @@ usersRouter.post("/",async (req,res)=>{
         rol: req.body.rol,
         compania_id: req.body.compania_id
       })
-    res.status(201)
-})
+      res.status(201)
+}})
 
 
 
