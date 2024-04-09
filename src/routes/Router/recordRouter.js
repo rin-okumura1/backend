@@ -1,6 +1,6 @@
 const {Router} = require("express");
 const recordRouter = Router()
-const {Record}=require('../../db')
+const {Registro}=require('../../db')
 
 function validate(obj){
     let { ticket_id,historial}=obj
@@ -9,18 +9,18 @@ function validate(obj){
 
 
 recordRouter.get("/",async (req,res)=>{
-    res.json(await Record.findAll())
+    res.json(await Registro.findAll())
 })
 
 recordRouter.get("/:id",async (req,res)=>{
     const { id } = req.params;
     console.log(id)
-    res.json(await Record.findByPk(id))
+    res.json(await Registro.findByPk(id))
 })
 
 
 recordRouter.post("/",async (req,res)=>{
-    await Record.create(req.body)
+    await Registro.create(req.body)
     res.status(201)
 })
 
