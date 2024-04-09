@@ -1,6 +1,7 @@
 const {Router} = require("express");
 const usersRouter = Router()
-const {Usuario}=require('../../db')
+const {Usuario}=require('../../db');
+const { where } = require("sequelize");
 
 
 usersRouter.get("/",async (req,res)=>{
@@ -13,9 +14,14 @@ usersRouter.get("/:id",async (req,res)=>{
     res.json(await Usuario.findByPk(id))
 })
 
+usersRouter.get("/:email/:password",async (req,res)=>{
+    const { email,password } = req.params;
+
+    res.json(await Usuario.findOne({where:{email:email,password:password}}))
+})
 
 usersRouter.post("/",async (req,res)=>{
-    let a=await Usuario.create({
+   await Usuario.create({
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         contraseña : req.body.contraseña , // Remember to handle password securely
