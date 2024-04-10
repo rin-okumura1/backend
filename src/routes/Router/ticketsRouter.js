@@ -7,6 +7,10 @@ ticketRouter.get("/",async (req,res)=>{
     res.json(await Ticket.findAll())
 })
 
+ticketRouter.get("/creadoP/:idUsuario",async (req,res)=>{
+    res.json(await Ticket.findAll({where:{usuario_id:req.params.idUsuario}}))
+})   
+
 ticketRouter.get("/:id",async (req,res)=>{
     let id = parseInt(req.params.id);
     console.log(id)
