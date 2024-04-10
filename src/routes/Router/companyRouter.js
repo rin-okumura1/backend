@@ -18,7 +18,7 @@ async function existe(nombre){
     let where={where:{
         nombre:nombre
     }}
-    let retorno =await Compania.findAll(where)
+    let retorno =await Compania.findOne(where)
     console.log(retorno)
     return retorno
 }
@@ -26,7 +26,7 @@ async function existe(nombre){
 companyRouter.post("/",async (req,res)=>{
     let a=await existe(req.body.nombre)
     console.log("aqui "+a)
-    if(a.length>0){
+    if(a!=null){
         res.json({message:"ya existe"})
     }
     else{
