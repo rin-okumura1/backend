@@ -8,7 +8,10 @@ ticketRouter.get("/",async (req,res)=>{
 })
 
 ticketRouter.get("/creadoP/:idUsuario",async (req,res)=>{
-    res.json(await Ticket.findAll({where:{usuario_id:req.params.idUsuario}}))
+    let id = parseInt(req.params.idUsuario);
+    console.log(id)
+    if(isNaN(id))res.json({message:"error:no es numerico"})
+    else res.json(await Ticket.findAll({where:{usuario_id:id}}))
 })   
 
 ticketRouter.get("/:id",async (req,res)=>{
