@@ -11,7 +11,7 @@ usersRouter.get("/",async (req,res)=>{
 usersRouter.get("/:id",async (req,res)=>{
     let id = parseInt(req.params.id);
     console.log(id)
-    if(isNaN(id))res.json({message:"jodete perra"})
+    if(isNaN(id))res.json({message:"error:no es numerico"})
     else{
         let user=await Usuario.findByPk(id)
         res.json(user)
@@ -20,7 +20,7 @@ usersRouter.get("/:id",async (req,res)=>{
 usersRouter.post('/login',async (req,res)=>{
     const { email,contraseña } = req.body;
     let user=await Usuario.findOne({where:{email:email,contraseña:contraseña}})
-    if( user==undefined)res.json({message:"jodete"})
+    if( user==undefined)res.json({message:"error"})
     else res.json(user)
 })
 async function existe(email){
@@ -29,7 +29,7 @@ async function existe(email){
 
 usersRouter.post("/",async (req,res)=>{
    let user=await existe(req.body.email)
-    if(user!=null)res.json({message:"no me caigo"}).status(400)
+    if(user!=null)res.json({message:"error"}).status(400)
    else{
     await Usuario.create({
         nombre: req.body.nombre,

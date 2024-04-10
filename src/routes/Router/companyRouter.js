@@ -10,7 +10,7 @@ companyRouter.get("/",async (req,res)=>{
 companyRouter.get("/:id",async (req,res)=>{
     let id = parseInt(req.params.id);
     console.log(id)
-    if(isNaN(id))res.json({message:"jodete perra"})
+    if(isNaN(id))res.json({message:"error:no es numerico"})
     else res.json(await Compania.findByPk(id))
 })
 

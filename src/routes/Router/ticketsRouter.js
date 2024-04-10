@@ -10,7 +10,7 @@ ticketRouter.get("/",async (req,res)=>{
 ticketRouter.get("/:id",async (req,res)=>{
     let id = parseInt(req.params.id);
     console.log(id)
-    if(isNaN(id))res.json({message:"jodete perra"})
+    if(isNaN(id))res.json({message:"error:no es numerico"})
     else res.json(await Ticket.findByPk(id))
 })
 
