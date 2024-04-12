@@ -57,7 +57,7 @@ usersRouter.put('/editar',async (req,res)=>{
         rol: req.body.rol,
         ocupado:false
       },{where:{id:user.id}})
-       res.json
+       res.json({Message:"listo"})
  }})
 
 
