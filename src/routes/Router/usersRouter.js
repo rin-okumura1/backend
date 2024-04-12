@@ -49,8 +49,16 @@ usersRouter.put('/editar',async (req,res)=>{
      if(user==null)res.json({message:"error"}).status(400)
     else{
         user.ocupado=false
-        user.where={id:user.id}
-     await Usuario.update(user)
+       
+     await Usuario.update({nombre: user.nombre,
+        apellido: user.apellido,
+        contraseña : user.contraseña , // Remember to handle password securely
+        email: user.email,
+        activo: user.activo,
+        rol: user.rol,
+        compania_id: user.compania_id,
+        ocupado:user.ocupado
+      },{where:{id:user.id}})
        res.status(201)
  }})
 
