@@ -35,6 +35,11 @@ module.exports = (sequelize) => {
             allowNull: true,
 
 
+        },
+        
+        operario_id:{
+            type: DataTypes.INTEGER,
+            allowNull: true,
         }
         ,
         activo:{
