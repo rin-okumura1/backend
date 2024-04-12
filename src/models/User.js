@@ -42,7 +42,7 @@ module.exports = (sequelize) => {
         },
         ocupado:{
             type: DataTypes.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
         }
        
     })
