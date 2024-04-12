@@ -31,10 +31,23 @@ const { Usuario , Ticket ,Compania,Registro} = sequelize.models;
 //Relaciones
 Compania.hasMany(Usuario,{ foreignKey: 'compania_id' })
 Usuario.belongsTo(Compania,{ foreignKey: 'compania_id' })
-Compania.hasMany(Usuario,{ foreignKey: 'operario_id' })
-Usuario.belongsTo(Compania,{ foreignKey: 'operario_id' })
+
+
+
+
+
+
 Usuario.hasMany(Ticket,{foreignKey: 'usuario_id'}); //Un usuario puede tener varios tickets
 Ticket.belongsTo(Usuario,{foreignKey: 'usuario_id'})  //Un ticket pertenece a un usuario
+
+
+
+
+
+Usuario.hasMany(Registro,{foreignKey: 'operario_id'})
+Ticket.belongsTo(Registro,{foreignKey: 'operario_id'})
+
+
 Ticket.hasMany(Registro,{foreignKey: 'ticket_id'})
 Registro.belongsTo(Ticket,{foreignKey: 'ticket_id'})
 

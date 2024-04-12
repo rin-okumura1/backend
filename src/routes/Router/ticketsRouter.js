@@ -33,6 +33,7 @@ ticketRouter.post("/",async (req,res)=>{
         incidencia: req.body.incidencia,
         diagnostico: req.body.diagnostico,
         usuario_id: req.body.usuario_id,
+        operario_id:null
       })
 await crearRegistro(a)
 
