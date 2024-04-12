@@ -38,7 +38,8 @@ usersRouter.post("/",async (req,res)=>{
         email: req.body.email,
         activo: req.body.activo,
         rol: req.body.rol,
-        compania_id: req.body.compania_id
+        compania_id: req.body.compania_id,
+        ocupado:false
       })
       res.status(201)
 }})
