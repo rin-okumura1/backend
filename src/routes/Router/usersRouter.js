@@ -49,7 +49,8 @@ usersRouter.put('/editar',async (req,res)=>{
      if(user==null)res.json({message:"error"}).status(400)
     else{
         user.ocupado=false
-     await Usuario.update(req.body)
+        user.where={id:user.id}
+     await Usuario.update(user)
        res.status(201)
  }})
 
