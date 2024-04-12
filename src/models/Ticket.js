@@ -36,6 +36,11 @@ module.exports = (sequelize) => {
 
 
         }
+        ,
+        activo:{
+            type:DataTypes.BOOLEAN,
+            allowNull: false,
+        }
 
 
         

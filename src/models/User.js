@@ -39,6 +39,14 @@ module.exports = (sequelize) => {
         compania_id:{
             type: DataTypes.INTEGER,
             allowNull: false,
+        },
+        operario_id:{
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        ocupado:{
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
         }
        
     })
