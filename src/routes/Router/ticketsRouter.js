@@ -40,5 +40,18 @@ await crearRegistro(a)
     res.json(a)
 })
 
+ticketRouter.put("/editar",async (req,res)=>{
+
+    let a= await Ticket.update({
+        estado: req.body.estado,
+        prioridad: req.body.prioridad,
+        incidencia: req.body.incidencia,
+        diagnostico: req.body.diagnostico,
+        usuario_id: req.body.usuario_id,
+        operario_id:req.body
+      },{where:{id:req.body.id}})
+await crearRegistro(a)
+res.json({Message:'listo'})
+    })
 
 module.exports = ticketRouter;
