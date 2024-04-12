@@ -50,14 +50,15 @@ usersRouter.put('/editar',async (req,res)=>{
     else{
         user.ocupado=false
        
-     await Usuario.update({nombre: user.nombre,
-        apellido: user.apellido,
-        contraseña : user.contraseña , // Remember to handle password securely
-        email: user.email,
-        activo: user.activo,
-        rol: user.rol,
-        compania_id: user.compania_id,
-        ocupado:user.ocupado
+     await Usuario.update({
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        contraseña : req.body.contraseña , // Remember to handle password securely
+        email: req.body.email,
+        activo: req.body.activo,
+        rol: req.body.rol,
+        compania_id: req.body.compania_id,
+        ocupado:false
       },{where:{id:user.id}})
        res.status(201)
  }})
