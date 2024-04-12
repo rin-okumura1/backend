@@ -44,7 +44,14 @@ usersRouter.post("/",async (req,res)=>{
       res.status(201)
 }})
 
-
+usersRouter.put('/editar',async (req,res)=>{
+    let user=await existe(req.body.email)
+     if(user==null)res.json({message:"error"}).status(400)
+    else{
+        user.ocupado=false
+     await Usuario.update(req.body)
+       res.status(201)
+ }})
 
 
 module.exports = usersRouter;
