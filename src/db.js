@@ -44,8 +44,8 @@ Ticket.belongsTo(Usuario,{foreignKey: 'usuario_id'})  //Un ticket pertenece a un
 
 
 
-Usuario.hasMany(Registro,{foreignKey: 'operario_id'})
-Ticket.belongsTo(Registro,{foreignKey: 'operario_id'})
+Usuario.hasMany(Ticket,{foreignKey: 'operario_id'})
+Ticket.belongsTo(Usuario,{foreignKey: 'operario_id'})
 
 
 Ticket.hasMany(Registro,{foreignKey: 'ticket_id'})
