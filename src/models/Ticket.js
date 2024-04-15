@@ -40,15 +40,16 @@ module.exports = (sequelize) => {
         operario_id:{
             type: DataTypes.INTEGER,
             allowNull: true,
-        }
-        ,
+        },
         activo:{
+            type:DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        nota:{
             type:DataTypes.BOOLEAN,
             allowNull: false,
         }
 
-
-        
 
     })
 }

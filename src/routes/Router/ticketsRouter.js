@@ -34,7 +34,8 @@ ticketRouter.post("/",async (req,res)=>{
         diagnostico: req.body.diagnostico,
         usuario_id: req.body.usuario_id,
         operario_id:null,
-        activo:true
+        activo:true,
+        nota:""
       })
 await crearRegistro(a)
 
@@ -49,7 +50,9 @@ ticketRouter.put("/editar",async (req,res)=>{
         incidencia: req.body.incidencia,
         diagnostico: req.body.diagnostico,
         usuario_id: req.body.usuario_id,
-        operario_id:req.body
+        operario_id:req.body,
+        activo:req.body.activo,
+        nota:req.body.nota
       },{where:{id:req.body.id}})
 await crearRegistro(a)
 res.json({Message:'listo'})
