@@ -50,7 +50,7 @@ ticketRouter.put("/editar",async (req,res)=>{
         incidencia: req.body.incidencia,
         diagnostico: req.body.diagnostico,
         usuario_id: req.body.usuario_id,
-        operario_id:req.body,
+        operario_id:req.body.operario_id,
         activo:req.body.activo,
         nota:req.body.nota
       },{where:{id:req.body.id}})
