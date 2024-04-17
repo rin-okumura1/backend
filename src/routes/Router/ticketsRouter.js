@@ -22,7 +22,7 @@ ticketRouter.get("/:id",async (req,res)=>{
 })
 
 async function existe(id){
-   return res.json(await Ticket.findByPk(id))
+   return await Ticket.findByPk(id)
 }
 
 async function crearRegistro(body){
