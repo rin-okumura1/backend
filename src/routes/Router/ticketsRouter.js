@@ -37,6 +37,7 @@ ticketRouter.post("/",async (req,res)=>{
         activo:true,
         nota:""
       })
+      console.log(a+ " aca lo creo")
 await crearRegistro(a)
 
     res.json(a)
