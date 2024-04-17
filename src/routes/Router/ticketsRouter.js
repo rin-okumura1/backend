@@ -21,6 +21,10 @@ ticketRouter.get("/:id",async (req,res)=>{
     else res.json(await Ticket.findByPk(id))
 })
 
+async function existe(id){
+    res.json(await Ticket.findByPk(id))
+}
+
 async function crearRegistro(body){
     await Registro.create({ticket_id:body.id,historial:JSON.stringify(body)})
 }
@@ -55,8 +59,8 @@ ticketRouter.put("/editar",async (req,res)=>{
         activo:req.body.activo,
         nota:req.body.nota
       },{where:{id:req.body.id}})
-      console.log(a)
-await crearRegistro(a)
+      let existe=existe(id)
+await crearRegistro(existe)
 res.json({Message:'listo'})
     })
 
