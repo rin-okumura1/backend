@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
         },
         nota:{
             type:DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         }
 
 
