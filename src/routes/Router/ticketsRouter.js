@@ -59,8 +59,8 @@ ticketRouter.put("/editar",async (req,res)=>{
         activo:req.body.activo,
         nota:req.body.nota
       },{where:{id:req.body.id}})
-      let existe=await existe(id)
-await crearRegistro(existe)
+      let existes=await existe(id)
+await crearRegistro(existes)
 res.json({Message:'listo'})
     })
 
