@@ -48,14 +48,14 @@ usersRouter.put('/editar',async (req,res)=>{
     let user=await Usuario.findByPk(req.body.id)
      if(user==null)res.json({message:"error"}).status(400)
     else{
-        user.ocupado=false
+        
        
      await Usuario.update({
         contraseña : req.body.contraseña , // Remember to handle password securely
         email: req.body.email,
         activo: req.body.activo,
         rol: req.body.rol,
-        ocupado:false
+        ocupado:(user.ocupado!=req.body.ocupado&&req.body.ocupado!=undefined)?req.body.ocupado:user.ocupado
       },{where:{id:user.id}})
        res.json(await Usuario.findByPk(req.body.id))
  }})
