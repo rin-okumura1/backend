@@ -46,7 +46,7 @@ usersRouter.post("/",async (req,res)=>{
 
 usersRouter.put('/editar',async (req,res)=>{
     let user=await Usuario.findByPk(req.body.id)
-     if(user==null)res.json({message:"error"}).status(400)
+     if(user==nul||existe(req.body.email)!=null)res.json({message:"error"}).status(400)
     else{
         
        
